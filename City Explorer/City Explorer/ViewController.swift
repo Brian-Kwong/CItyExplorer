@@ -6,19 +6,35 @@
 //
 
 import UIKit
+import CoreLocationUI
+import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+    
+    
+    @IBOutlet var locationButton: CLLocationButton!
+    
     @IBOutlet var myTable: UITableView!
     
-    var cityData:[CityDataModel] = []
+    let localManager = CLLocationManager()
     
+    var cityData:[CityDataModel] = []
+    var userLocation: [CLLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myTable.dataSource = self
         myTable.delegate = self
-        CityAPI.shared.functionGetCityURLRequest{ [self]
+        localManager.delegate = self
+        locationButton.addTarget(self, action:#selector(didTapButton), for: .touchUpInside)
+        var location:Location
+        if(userLocation.count < 1){
+            location = Location(lat: 37.7749, long: -122.4194, name: "")
+        }
+        else{
+            location = Location(lat: userLocation.first!.coordinate.latitude, long: userLocation.first!.coordinate.longitude, name: "")
+        }
+        CityAPI.shared.functionGetCityURLRequest(location){ [self]
             result in
             switch result{
             case .success(let cities):
@@ -65,14 +81,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.myTable.deselectRow(at: indexPath, animated: true)
     }
     
+    @objc func didTapButton(){
+        localManager.startUpdatingLocation()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1){
+            self.cityData = []
+            self.viewDidLoad()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationController = segue.destination as? DetailedCityViiewController{
-            let city = cityData[self.myTable.indexPathForSelectedRow!.row]
-            destinationController.city = city
-        }
-        else{
-            return
-        }
+            if let destinationController = segue.destination as? DetailedCityViiewController{
+                let city = cityData[self.myTable.indexPathForSelectedRow!.row]
+                destinationController.city = city
+            }
+            else{
+                return
+            }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.userLocation.append(locations.first!)
+        self.localManager.stopUpdatingLocation()
     }
 }
 

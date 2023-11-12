@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct Location:Codable{
+    let lat:Double
+    let long:Double
+    let name:String
+}
+
 struct GPlacesResponse:Codable{
     let candidates:[Place]
 }

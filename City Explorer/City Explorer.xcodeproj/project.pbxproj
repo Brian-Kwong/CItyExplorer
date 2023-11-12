@@ -19,6 +19,8 @@
 		D3759EEB2B005965008C2E35 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = D3759EEA2B005965008C2E35 /* Nuke */; };
 		D3759F0E2B0065D5008C2E35 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = D3759F0D2B0065D5008C2E35 /* Nuke */; };
 		D38719242B00863700F53B5D /* DetailedCityViiewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38719232B00863700F53B5D /* DetailedCityViiewController.swift */; };
+		D3E282CC2B00D50C00760314 /* CoreLocationUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E282CA2B00D50C00760314 /* CoreLocationUI.framework */; };
+		D3E282CD2B00D50C00760314 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E282CB2B00D50C00760314 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		D363ED822AFF072F002DDF54 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		D363ED842AFF09B0002DDF54 /* API Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API Processor.swift"; sourceTree = "<group>"; };
 		D38719232B00863700F53B5D /* DetailedCityViiewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCityViiewController.swift; sourceTree = "<group>"; };
+		D3E282CA2B00D50C00760314 /* CoreLocationUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocationUI.framework; path = System/Library/Frameworks/CoreLocationUI.framework; sourceTree = SDKROOT; };
+		D3E282CB2B00D50C00760314 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E282CC2B00D50C00760314 /* CoreLocationUI.framework in Frameworks */,
+				D3E282CD2B00D50C00760314 /* CoreLocation.framework in Frameworks */,
 				D3759EEB2B005965008C2E35 /* Nuke in Frameworks */,
 				D3759F0E2B0065D5008C2E35 /* Nuke in Frameworks */,
 			);
@@ -87,6 +93,8 @@
 		D3759F022B0061CE008C2E35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3E282CB2B00D50C00760314 /* CoreLocation.framework */,
+				D3E282CA2B00D50C00760314 /* CoreLocationUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

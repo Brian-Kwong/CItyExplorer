@@ -16,12 +16,22 @@ final class CityAPI{
     
     static let shared = CityAPI()
     
-    func functionGetCityURLRequest(completion: @escaping (Result<[City],Error>) -> Void){
+    func functionGetCityURLRequest(_ location:Location, completion: @escaping (Result<[City],Error>) -> Void){
         let headers = [
             "X-RapidAPI-Key": "e83ef242camshcf5494f13f3b17cp17debejsnc310b5f6fce9",
             "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
         ]
-        let baseURL = "https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=10&location=%2B37.77-122.4326"
+        var baseURL = "https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=10"
+        if(location.name == ""){
+            baseURL+="&location=%2B"
+            baseURL+=String(location.lat)
+            baseURL+=String(location.long)
+        }
+        else{
+            baseURL+="&namePrefix="
+            baseURL+=location.name
+            baseURL+="&namePrefixDefaultLangResults=false"
+        }
         let request = NSMutableURLRequest(url: NSURL(string: baseURL)! as URL);
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -66,7 +76,12 @@ final class PhotoIDAPI{
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             do{
                 let responseData = try decoder.decode(GPlacesResponse.self, from: data!)
-                completion(.success(responseData.candidates.first!.placeId))
+                if(responseData.candidates.first != nil){
+                    completion(.success(responseData.candidates.first!.placeId))
+                }
+                else{
+                    completion(.success(""))
+                }
             }
             catch{
                 completion(.failure(error))
@@ -86,6 +101,13 @@ final class PhotoAPI{
     
     func functionGetPhotoRefURLRequest(_ placeID:String, completion: @escaping (Result<[PhotoRef],Error>) -> Void){
         let baseURL = "https://maps.googleapis.com/maps/api/place/details/json?&key=AIzaSyA347e3-Var0rEuVTYTNwl2v-wwOF7uB80&fields=photos&place_id="
+        
+        
+        if(placeID.isEmpty){
+            let photoRef = PhotoRef(height: 400, width: 400, photoReference: "ATJ83zhSSAtkh5LTozXMhBghqubeOxnZWUV2m7Hv2tQaIzKQJgvZk9yCaEjBW0r0Zx1oJ9RF1G7oeM34sQQMOv8s2zA0sgGBiyBgvdyMxeVByRgHUXmv-rkJ2wyvNv17jyTSySm_-_6R2B0v4eKX257HOxvXlx_TSwp2NrICKrZM2d5d2P4q")
+            let placeHolder:[ PhotoRef] = [photoRef]
+            completion(.success(placeHolder))
+        }
         
         let myURL = URL(string: baseURL+placeID)!
         let myRequest = URLRequest(url: myURL)
