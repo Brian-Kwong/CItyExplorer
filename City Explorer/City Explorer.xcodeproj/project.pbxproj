@@ -18,6 +18,7 @@
 		D363ED852AFF09B0002DDF54 /* API Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D363ED842AFF09B0002DDF54 /* API Processor.swift */; };
 		D3759EEB2B005965008C2E35 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = D3759EEA2B005965008C2E35 /* Nuke */; };
 		D3759F0E2B0065D5008C2E35 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = D3759F0D2B0065D5008C2E35 /* Nuke */; };
+		D38719242B00863700F53B5D /* DetailedCityViiewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38719232B00863700F53B5D /* DetailedCityViiewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D363ED7C2AFE350E002DDF54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D363ED822AFF072F002DDF54 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		D363ED842AFF09B0002DDF54 /* API Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API Processor.swift"; sourceTree = "<group>"; };
+		D38719232B00863700F53B5D /* DetailedCityViiewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCityViiewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				D363ED722AFE350B002DDF54 /* ViewController.swift */,
 				D314DE672B004E28000B8132 /* CityTableView.swift */,
 				D363ED742AFE350B002DDF54 /* Main.storyboard */,
+				D38719232B00863700F53B5D /* DetailedCityViiewController.swift */,
 				D363ED822AFF072F002DDF54 /* City.swift */,
 				D363ED842AFF09B0002DDF54 /* API Processor.swift */,
 				D363ED772AFE350E002DDF54 /* Assets.xcassets */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D38719242B00863700F53B5D /* DetailedCityViiewController.swift in Sources */,
 				D314DE682B004E28000B8132 /* CityTableView.swift in Sources */,
 				D363ED852AFF09B0002DDF54 /* API Processor.swift in Sources */,
 				D363ED732AFE350B002DDF54 /* ViewController.swift in Sources */,

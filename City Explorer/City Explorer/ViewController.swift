@@ -60,5 +60,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell?.configure(myCity)
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.myTable.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? DetailedCityViiewController{
+            let city = cityData[self.myTable.indexPathForSelectedRow!.row]
+            destinationController.city = city
+        }
+        else{
+            return
+        }
+    }
 }
 

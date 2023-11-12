@@ -450,5 +450,69 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "635AFD53-A6EC-40ED-A659-4D0860165198"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "City Explorer/DetailedCityViiewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "635AFD53-A6EC-40ED-A659-4D0860165198 - 265f10698f71878a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "City_Explorer.DetailedCityViiewController.viewDidLoad() -&gt; ()"
+                  moduleName = "City Explorer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brian/Documents/CItyExplorer/City%20Explorer/City%20Explorer/DetailedCityViiewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "4320">
+               </Location>
+               <Location
+                  uuid = "635AFD53-A6EC-40ED-A659-4D0860165198 - 265f10698f7186c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "City_Explorer.DetailedCityViiewController.viewDidLoad() -&gt; ()"
+                  moduleName = "City Explorer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brian/Documents/CItyExplorer/City%20Explorer/City%20Explorer/DetailedCityViiewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "4328">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1C50088-065E-4F4C-84C7-6AC5CC949B02"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "City Explorer/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
