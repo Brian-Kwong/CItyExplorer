@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30D40232B01ED180084040B /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30D40222B01ED180084040B /* settingsViewController.swift */; };
+		D30D40252B01F4250084040B /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30D40242B01F4250084040B /* welcomeViewController.swift */; };
 		D314DE682B004E28000B8132 /* CityTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314DE672B004E28000B8132 /* CityTableView.swift */; };
+		D32726112B01B48800768D6D /* recentAndSavedCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32726102B01B48800768D6D /* recentAndSavedCitiesViewController.swift */; };
+		D32726132B01C2B600768D6D /* UserScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32726122B01C2B600768D6D /* UserScreenViewController.swift */; };
 		D363ED6F2AFE350B002DDF54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D363ED6E2AFE350B002DDF54 /* AppDelegate.swift */; };
 		D363ED712AFE350B002DDF54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D363ED702AFE350B002DDF54 /* SceneDelegate.swift */; };
 		D363ED732AFE350B002DDF54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D363ED722AFE350B002DDF54 /* ViewController.swift */; };
@@ -24,7 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D30D40222B01ED180084040B /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
+		D30D40242B01F4250084040B /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
 		D314DE672B004E28000B8132 /* CityTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableView.swift; sourceTree = "<group>"; };
+		D32726102B01B48800768D6D /* recentAndSavedCitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recentAndSavedCitiesViewController.swift; sourceTree = "<group>"; };
+		D32726122B01C2B600768D6D /* UserScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScreenViewController.swift; sourceTree = "<group>"; };
 		D363ED6B2AFE350B002DDF54 /* City Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "City Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D363ED6E2AFE350B002DDF54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D363ED702AFE350B002DDF54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,10 +86,14 @@
 				D363ED6E2AFE350B002DDF54 /* AppDelegate.swift */,
 				D363ED702AFE350B002DDF54 /* SceneDelegate.swift */,
 				D363ED722AFE350B002DDF54 /* ViewController.swift */,
+				D32726102B01B48800768D6D /* recentAndSavedCitiesViewController.swift */,
 				D314DE672B004E28000B8132 /* CityTableView.swift */,
 				D363ED742AFE350B002DDF54 /* Main.storyboard */,
+				D30D40242B01F4250084040B /* welcomeViewController.swift */,
+				D32726122B01C2B600768D6D /* UserScreenViewController.swift */,
 				D38719232B00863700F53B5D /* DetailedCityViiewController.swift */,
 				D363ED822AFF072F002DDF54 /* City.swift */,
+				D30D40222B01ED180084040B /* settingsViewController.swift */,
 				D363ED842AFF09B0002DDF54 /* API Processor.swift */,
 				D363ED772AFE350E002DDF54 /* Assets.xcassets */,
 				D363ED792AFE350E002DDF54 /* LaunchScreen.storyboard */,
@@ -178,10 +190,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32726112B01B48800768D6D /* recentAndSavedCitiesViewController.swift in Sources */,
 				D38719242B00863700F53B5D /* DetailedCityViiewController.swift in Sources */,
 				D314DE682B004E28000B8132 /* CityTableView.swift in Sources */,
 				D363ED852AFF09B0002DDF54 /* API Processor.swift in Sources */,
+				D32726132B01C2B600768D6D /* UserScreenViewController.swift in Sources */,
+				D30D40232B01ED180084040B /* settingsViewController.swift in Sources */,
 				D363ED732AFE350B002DDF54 /* ViewController.swift in Sources */,
+				D30D40252B01F4250084040B /* welcomeViewController.swift in Sources */,
 				D363ED6F2AFE350B002DDF54 /* AppDelegate.swift in Sources */,
 				D363ED832AFF072F002DDF54 /* City.swift in Sources */,
 				D363ED712AFE350B002DDF54 /* SceneDelegate.swift in Sources */,

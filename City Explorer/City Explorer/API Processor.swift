@@ -154,9 +154,9 @@ final class cityAutoComplete{
     func functionGetCityFromSearchRequest(_ location:String, completion: @escaping (Result<String,Error>) -> Void){
         var baseURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?types=%28cities%29&feilds=description&input="
         baseURL+=location
-        var myURL = URL(string:baseURL+apiKey)!
+        let myURL = URL(string:baseURL+apiKey)!
         print(myURL)
-        var myRequest = URLRequest(url: myURL)
+        let myRequest = URLRequest(url: myURL)
         URLSession.shared.dataTask(with: myRequest){
            data, response,error in
             guard error == nil else{return}

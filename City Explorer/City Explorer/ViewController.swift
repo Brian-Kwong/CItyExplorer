@@ -24,22 +24,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var userLocation: [CLLocation] = []
     var searchCity:String = ""
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityData = []
         myTable.dataSource = self
         myTable.delegate = self
         localManager.delegate = self
         SearchACity.delegate=self
         locationButton.addTarget(self, action:#selector(didTapButton), for: .touchUpInside)
+        let userDef = UserDefaults.standard
+        let name = userDef.string(forKey: "name")
+        if(name == nil){
+            if let welcomeScreen = (storyboard?.instantiateViewController(withIdentifier: "welcomeScreen") as? welcomeViewController){
+                welcomeScreen.parentController = self
+                welcomeScreen.isModalInPresentation = true
+                self.present(welcomeScreen, animated: true)
+            }
+        }
         var location:Location
         if (!searchCity.isEmpty){
             location = Location(lat: 0, long: 0, name: searchCity)
         }
-        else if (userLocation.count < 1){
-            location = Location(lat: 37.7749, long: -122.4194, name: "")
+        else if (userLocation.count >= 1){
+            location = Location(lat: userLocation.first!.coordinate.latitude, long: userLocation.first!.coordinate.longitude, name: "")
+        }
+        else if let name = userDef.string(forKey: "homeCity"),!name.isEmpty{
+            location = Location(lat: 0, long: 0, name: name)
         }
         else{
-            location = Location(lat: userLocation.first!.coordinate.latitude, long: userLocation.first!.coordinate.longitude, name: "")
+            location = Location(lat: 37.7749, long: -122.4194, name: "")
         }
         CityAPI.shared.functionGetCityURLRequest(location){ [self]
             result in
@@ -111,7 +125,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         print("Search city is \n")
                         print(cities)
                         self.searchCity = cities
-                        self.cityData = []
                         self.userLocation = []
                         self.myTable.reloadData()
                         self.viewDidLoad()
@@ -138,11 +151,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @objc func didTapButton(){
         localManager.startUpdatingLocation()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1){
-            self.cityData = []
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.1){
             self.searchCity = ""
             self.SearchACity.text = "Search A City"
-            self.myTable.reloadData()
             self.viewDidLoad()
         }
     }
@@ -163,5 +174,3 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.localManager.stopUpdatingLocation()
     }
 }
-
-

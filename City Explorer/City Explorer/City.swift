@@ -44,7 +44,7 @@ struct Errors:Codable{
     let message:String
 }
 
-struct City: Codable{
+struct City: Codable, Hashable{
     let id:Int
     let wikiDataId:String
     let type:String
@@ -105,4 +105,12 @@ enum CodingKeys: String, CodingKey{
 struct CityDataModel:Codable{
     let cityInfo:City
     let cityImages:[PhotoRef]
+}
+
+struct User:Codable{
+    var name:String = ""
+    var homeCity:String = ""
+    var savedCities:[City] = []
+    var recentCities:[City] = []
+
 }
