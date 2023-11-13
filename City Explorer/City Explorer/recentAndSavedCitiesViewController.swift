@@ -65,6 +65,7 @@ class recentAndSavedCitiesViewController: UIViewController,UITableViewDataSource
             if let destinationController = segue.destination as? DetailedCityViiewController{
                 let city = cityData[self.myTable.indexPathForSelectedRow!.row]
                 destinationController.city = city
+                destinationController.fromHome = false;
             }
             else{
                 return

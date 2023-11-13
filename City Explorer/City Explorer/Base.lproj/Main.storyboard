@@ -298,7 +298,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IKY-Mj-R2O">
-                                <rect key="frame" x="16" y="103" width="361" height="438"/>
+                                <rect key="frame" x="16" y="103.00000000000003" width="361" height="445.66666666666674"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K45-F8-CtT">
                                 <rect key="frame" x="278" y="113" width="89" height="91"/>
@@ -311,7 +311,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="pmn-DI-EkE">
-                                <rect key="frame" x="16" y="560" width="361" height="234.33333333333337"/>
+                                <rect key="frame" x="16" y="567.66666666666663" width="361" height="234.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Ksg-TQ-KXT">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="234.33333333333334"/>
@@ -326,7 +326,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBO-uU-qVr">
-                                                <rect key="frame" x="0.0" y="35.666666666666629" width="100" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="35.666666666666742" width="100" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -344,7 +344,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJ9-J8-pDc">
-                                                <rect key="frame" x="0.0" y="142.66666666666663" width="100" height="20.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="142.66666666666674" width="100" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -382,7 +382,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Population Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHb-du-KeD">
-                                                <rect key="frame" x="0.0" y="66.666666666666629" width="200" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="66.666666666666742" width="200" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -400,7 +400,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcY-dC-NZ5">
-                                                <rect key="frame" x="0.0" y="166.66666666666663" width="200" height="20.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="166.66666666666674" width="200" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -410,7 +410,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
-                                                    <action selector="goToSelectedWikiPage:" destination="Irt-gz-eJz" eventType="touchUpInside" id="MsM-yM-ibf"/>
+                                                    <action selector="goToWiki:" destination="Irt-gz-eJz" eventType="touchUpInside" id="4iO-nz-wfR"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -423,9 +423,9 @@
                         <constraints>
                             <constraint firstItem="IKY-Mj-R2O" firstAttribute="top" secondItem="bNb-Tb-uyd" secondAttribute="top" id="0HY-5B-sob"/>
                             <constraint firstItem="IKY-Mj-R2O" firstAttribute="leading" secondItem="bNb-Tb-uyd" secondAttribute="leading" constant="16" id="8EL-Rm-HWf"/>
+                            <constraint firstAttribute="bottom" secondItem="pmn-DI-EkE" secondAttribute="bottom" constant="50" id="B7U-z3-mYn"/>
                             <constraint firstItem="bNb-Tb-uyd" firstAttribute="trailing" secondItem="IKY-Mj-R2O" secondAttribute="trailing" constant="16" id="F8p-X1-J7P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K45-F8-CtT" secondAttribute="trailing" constant="10" id="KUW-Ww-Nl8"/>
-                            <constraint firstItem="pmn-DI-EkE" firstAttribute="bottom" secondItem="bNb-Tb-uyd" secondAttribute="bottom" constant="25.333333333333371" id="NtU-FF-jKC"/>
                             <constraint firstItem="K45-F8-CtT" firstAttribute="top" secondItem="2dP-mo-sDX" secondAttribute="topMargin" constant="10" id="ZkO-rq-sa8"/>
                             <constraint firstItem="pmn-DI-EkE" firstAttribute="top" secondItem="IKY-Mj-R2O" secondAttribute="bottom" constant="19" id="ogn-Q7-iea"/>
                             <constraint firstItem="bNb-Tb-uyd" firstAttribute="trailing" secondItem="5Ve-MP-Hq0" secondAttribute="trailing" constant="16" id="r9Y-zE-sck"/>
@@ -441,8 +441,8 @@
                         <outlet property="LongInfo" destination="ryE-0C-a9Z" id="jKf-bd-ckQ"/>
                         <outlet property="PopulationName" destination="cHb-du-KeD" id="ZLj-KY-a8t"/>
                         <outlet property="RegionName" destination="dWU-f8-rk3" id="P8x-rZ-hV2"/>
-                        <outlet property="WikiIDButton" destination="pNT-58-p66" id="2L9-He-XqY"/>
-                        <outlet property="savedButton" destination="K45-F8-CtT" id="Zdk-ZF-iKE"/>
+                        <outlet property="savedButton" destination="K45-F8-CtT" id="gO2-xl-QNK"/>
+                        <outlet property="wikiButton" destination="pNT-58-p66" id="yQo-5g-8FL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQB-OV-swq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -524,7 +524,7 @@
                                             <outlet property="CityCountry" destination="UNm-xx-ns2" id="xLM-MD-LGp"/>
                                             <outlet property="CityImage" destination="OVu-FQ-aiS" id="7yw-S6-PyJ"/>
                                             <outlet property="CityName" destination="tlI-zW-tDa" id="HuS-qR-qaW"/>
-                                            <segue destination="Irt-gz-eJz" kind="show" id="vIY-eC-nJ7"/>
+                                            <segue destination="Irt-gz-eJz" kind="show" id="Txt-b2-MAR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -658,7 +658,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kpW-jz-WDb"/>
-        <segue reference="vIY-eC-nJ7"/>
+        <segue reference="Txt-b2-MAR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>

@@ -34,15 +34,16 @@ final class CityAPI{
             baseURL+=location.name
             baseURL+="&namePrefixDefaultLangResults=false"
         }
-        print(baseURL)
         let request = NSMutableURLRequest(url: NSURL(string: baseURL)! as URL);
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
         URLSession.shared.dataTask(with: request as URLRequest){
            data, response,error in
-            guard error == nil else{return}
-            guard data != nil else{return}
+            guard error == nil else{completion(.failure(error!))
+            return}
+            guard data != nil else{completion(.failure(error!))
+            return}
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .useDefaultKeys
             do{
@@ -69,12 +70,13 @@ final class PhotoIDAPI{
         let baseURL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&key=AIzaSyA347e3-Var0rEuVTYTNwl2v-wwOF7uB80&fields=place_id&input="
         
         var myURL = URL(string: baseURL+location)!
-        print(myURL)
         var myRequest = URLRequest(url: myURL)
         URLSession.shared.dataTask(with: myRequest){
            data, response,error in
-            guard error == nil else{return}
-            guard data != nil else{return}
+            guard error == nil else{completion(.failure(error!))
+            return}
+            guard data != nil else{completion(.failure(error!))
+            return}
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             do{
@@ -105,10 +107,10 @@ final class PhotoAPI{
     func functionGetPhotoRefURLRequest(_ placeID:String, completion: @escaping (Result<[PhotoRef],Error>) -> Void){
         let baseURL = "https://maps.googleapis.com/maps/api/place/details/json?&key=AIzaSyA347e3-Var0rEuVTYTNwl2v-wwOF7uB80&fields=photos&place_id="
         
+        let photoRef = PhotoRef(height: 400, width: 400, photoReference: "ATJ83zhSSAtkh5LTozXMhBghqubeOxnZWUV2m7Hv2tQaIzKQJgvZk9yCaEjBW0r0Zx1oJ9RF1G7oeM34sQQMOv8s2zA0sgGBiyBgvdyMxeVByRgHUXmv-rkJ2wyvNv17jyTSySm_-_6R2B0v4eKX257HOxvXlx_TSwp2NrICKrZM2d5d2P4q")
+        let placeHolder:[ PhotoRef] = [photoRef]
         
         if(placeID.isEmpty){
-            let photoRef = PhotoRef(height: 400, width: 400, photoReference: "ATJ83zhSSAtkh5LTozXMhBghqubeOxnZWUV2m7Hv2tQaIzKQJgvZk9yCaEjBW0r0Zx1oJ9RF1G7oeM34sQQMOv8s2zA0sgGBiyBgvdyMxeVByRgHUXmv-rkJ2wyvNv17jyTSySm_-_6R2B0v4eKX257HOxvXlx_TSwp2NrICKrZM2d5d2P4q")
-            let placeHolder:[ PhotoRef] = [photoRef]
             completion(.success(placeHolder))
         }
         
@@ -116,8 +118,10 @@ final class PhotoAPI{
         let myRequest = URLRequest(url: myURL)
         URLSession.shared.dataTask(with: myRequest){
            data, response,error in
-            guard error == nil else{return}
-            guard data != nil else{return}
+            guard error == nil else{completion(.success(placeHolder))
+            return}
+            guard data != nil else{completion(.success(placeHolder))
+            return}
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             do{
@@ -125,7 +129,7 @@ final class PhotoAPI{
                 completion(.success(responseData.result.photos))
             }
             catch{
-                completion(.failure(error))
+                completion(.success(placeHolder))
             }
         }.resume()
     }
@@ -155,12 +159,13 @@ final class cityAutoComplete{
         var baseURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?types=%28cities%29&feilds=description&input="
         baseURL+=location
         let myURL = URL(string:baseURL+apiKey)!
-        print(myURL)
         let myRequest = URLRequest(url: myURL)
         URLSession.shared.dataTask(with: myRequest){
            data, response,error in
-            guard error == nil else{return}
-            guard data != nil else{return}
+            guard error == nil else{completion(.failure(error!))
+            return}
+            guard data != nil else{completion(.failure(error!))
+            return}
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             do{

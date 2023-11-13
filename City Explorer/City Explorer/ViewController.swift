@@ -43,6 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         var location:Location
+        var errorMessage:String = ""
         if (!searchCity.isEmpty){
             location = Location(lat: 0, long: 0, name: searchCity)
         }
@@ -59,6 +60,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             result in
             switch result{
             case .success(let cities):
+                if (cities.isEmpty){
+                    DispatchQueue.main.asyncAfter(deadline: .now()){ [weak self] in
+                        self!.popUpAlert("Search Error", "I'm sorry we've searched everywhere but the city you searched for doesnt seemed to exits If your using a acronym try using the full name?","OK"){_ in }
+                        return
+                    }
+                }
                 for city in cities{
                     var locationName = city.city + " ,"
                     locationName+=city.region
@@ -76,18 +83,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                     DispatchQueue.main.asyncAfter(deadline: .now()+0.1){ [weak self] in
                                         self!.myTable.reloadData()
                                     }
-                                case .failure(let error):
-                                    print(error)
+                                case .failure( _): break
+                                    /*Blank*/
                                 }
                             }
                         case .failure(let error):
-                            print(error)
+                            printNetworkError(error.localizedDescription)
                         }
                     }
                 }
             case .failure(let error):
-                print(error)
+                printNetworkError(error.localizedDescription)
             }
+        }
+    }
+    
+    func printNetworkError(_ errorMessage:String){
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.1){
+            [unowned self] in
+            let alert = UIAlertController(title: "Network Erorr", message: errorMessage, preferredStyle: .alert)
+            let reloadAction = UIAlertAction(title:"Try Again" , style: .default){
+                [unowned self] _ in
+                self.viewDidLoad()
+            }
+            let quitAction = UIAlertAction(title:"Close App" , style: .default){_ in
+                exit(0)
+            }
+            alert.addAction(reloadAction)
+            alert.addAction(quitAction)
+            present(alert, animated: true)
         }
     }
     
@@ -118,20 +142,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             case .success(let cities):
                 DispatchQueue.main.asyncAfter(deadline: .now()){
                     if(cities.isEmpty){
-                        self.popUpAlert("Search Error", "I'm sorry we've searched everywhere but the city you searched for doesnt seemed to exits","OK"){_ in }
+                        self.popUpAlert("Search Error", "I'm sorry we've searched everywhere but the city you searched for doesnt seemed to exits If your using a acronym try using the full name?","OK"){_ in }
                         return
                     }
                     else{
-                        print("Search city is \n")
-                        print(cities)
                         self.searchCity = cities
                         self.userLocation = []
-                        self.myTable.reloadData()
                         self.viewDidLoad()
                     }
                 }
             case.failure(let error):
-                print(error)
+                printNetworkError(error.localizedDescription)
             }
         }
         textField.resignFirstResponder()
@@ -162,6 +183,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let destinationController = segue.destination as? DetailedCityViiewController{
                 let city = cityData[self.myTable.indexPathForSelectedRow!.row]
                 destinationController.city = city
+                destinationController.fromHome = true
             }
             else{
                 return

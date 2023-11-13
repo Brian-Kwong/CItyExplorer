@@ -42,7 +42,7 @@ class DetailedCityViiewController: UIViewController, SFSafariViewControllerDeleg
     @IBOutlet var LatInfo: UILabel!
     
     
-    @IBOutlet var WikiIDButton: UIButton!
+    @IBOutlet var wikiButton: UIButton!
     
     @IBOutlet var savedButton: UIButton!
     
@@ -52,6 +52,8 @@ class DetailedCityViiewController: UIViewController, SFSafariViewControllerDeleg
     var savedCities:Set<City> = []
     
     var saved:Bool = false
+    
+    var fromHome:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +68,7 @@ class DetailedCityViiewController: UIViewController, SFSafariViewControllerDeleg
         RegionName.text = city.cityInfo.region
         LongInfo.text = String(city.cityInfo.longitude)
         LatInfo.text = String(city.cityInfo.latitude)
-        WikiIDButton.setTitle(city.cityInfo.wikiDataId, for: .normal)
+        wikiButton.setTitle(city.cityInfo.wikiDataId, for: .normal)
         if let photo = city.cityImages.first{
             let urlString = PhotoAPI.buildImageURL(photo)
             let image = URL(string: urlString)!
@@ -75,11 +77,13 @@ class DetailedCityViiewController: UIViewController, SFSafariViewControllerDeleg
     }
     
 
-    @IBAction func goToSelectedWikiPage(_ sender: UIButton) {
+    @IBAction func goToWiki(_ sender: Any) {
         let baseURL = "https://www.wikidata.org/wiki/"
         let safariWindow = SFSafariViewController(url:URL(string: baseURL+city.cityInfo.wikiDataId)!)
+        safariWindow.delegate = self
         self.present(safariWindow, animated: true)
     }
+    
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true)
