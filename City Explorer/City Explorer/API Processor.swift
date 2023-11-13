@@ -7,6 +7,8 @@
 
 import Foundation
 
+let apiKey = "&key=AIzaSyA347e3-Var0rEuVTYTNwl2v-wwOF7uB80"
+
 final class CityAPI{
     
     
@@ -21,8 +23,8 @@ final class CityAPI{
             "X-RapidAPI-Key": "e83ef242camshcf5494f13f3b17cp17debejsnc310b5f6fce9",
             "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
         ]
-        var baseURL = "https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=10"
-        if(location.name == ""){
+        var baseURL = "https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=10&types=CITY&sort=-population"
+        if(location.name.isEmpty){
             baseURL+="&location=%2B"
             baseURL+=String(location.lat)
             baseURL+=String(location.long)
@@ -32,6 +34,7 @@ final class CityAPI{
             baseURL+=location.name
             baseURL+="&namePrefixDefaultLangResults=false"
         }
+        print(baseURL)
         let request = NSMutableURLRequest(url: NSURL(string: baseURL)! as URL);
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -136,6 +139,43 @@ final class PhotoAPI{
         url+="&maxheight="
         url+=String(photo.height)
         return url
+    }
+}
+
+final class cityAutoComplete{
+    
+    
+    private init(){
+        /*Blank*/
+    }
+    
+    static let shared = cityAutoComplete()
+    
+    func functionGetCityFromSearchRequest(_ location:String, completion: @escaping (Result<String,Error>) -> Void){
+        var baseURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?types=%28cities%29&feilds=description&input="
+        baseURL+=location
+        var myURL = URL(string:baseURL+apiKey)!
+        print(myURL)
+        var myRequest = URLRequest(url: myURL)
+        URLSession.shared.dataTask(with: myRequest){
+           data, response,error in
+            guard error == nil else{return}
+            guard data != nil else{return}
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            do{
+                let responseData = try decoder.decode(cityPredictionResponse.self, from: data!)
+                if(responseData.status == "OK"){
+                    completion(.success(responseData.predictions.first!.structuredFormatting.mainText))
+                }
+                else{
+                    completion(.success(""))
+                }
+            }
+            catch{
+                completion(.failure(error))
+            }
+        }.resume()
     }
 }
 

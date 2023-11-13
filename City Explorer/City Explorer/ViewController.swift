@@ -9,10 +9,12 @@ import UIKit
 import CoreLocationUI
 import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate,UITextFieldDelegate {
     
     
     @IBOutlet var locationButton: CLLocationButton!
+    
+    @IBOutlet var SearchACity: UITextField!
     
     @IBOutlet var myTable: UITableView!
     
@@ -20,15 +22,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var cityData:[CityDataModel] = []
     var userLocation: [CLLocation] = []
+    var searchCity:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myTable.dataSource = self
         myTable.delegate = self
         localManager.delegate = self
+        SearchACity.delegate=self
         locationButton.addTarget(self, action:#selector(didTapButton), for: .touchUpInside)
         var location:Location
-        if(userLocation.count < 1){
+        if (!searchCity.isEmpty){
+            location = Location(lat: 0, long: 0, name: searchCity)
+        }
+        else if (userLocation.count < 1){
             location = Location(lat: 37.7749, long: -122.4194, name: "")
         }
         else{
@@ -39,7 +46,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             switch result{
             case .success(let cities):
                 for city in cities{
-                    PhotoIDAPI.shared.functionGetPhotoIDURLRequest(city.city){ [self]
+                    var locationName = city.city + " ,"
+                    locationName+=city.region
+                    locationName+=" ,"
+                    locationName+=city.country
+                    PhotoIDAPI.shared.functionGetPhotoIDURLRequest(locationName){ [self]
                         result in
                         switch result{
                         case .success(let placeid):
@@ -77,14 +88,61 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell!
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard var city = textField.text, !city.isEmpty else {
+            popUpAlert("Search Error", "Please make sure you type in a valid search item","OK"){_ in }
+            return true
+        }
+        city = city.replacingOccurrences(of: " ", with: ",")
+        cityAutoComplete.shared.functionGetCityFromSearchRequest(city){ [self]
+            result in
+            switch result{
+            case .success(let cities):
+                DispatchQueue.main.asyncAfter(deadline: .now()){
+                    if(cities.isEmpty){
+                        self.popUpAlert("Search Error", "I'm sorry we've searched everywhere but the city you searched for doesnt seemed to exits","OK"){_ in }
+                        return
+                    }
+                    else{
+                        print("Search city is \n")
+                        print(cities)
+                        self.searchCity = cities
+                        self.cityData = []
+                        self.userLocation = []
+                        self.myTable.reloadData()
+                        self.viewDidLoad()
+                    }
+                }
+            case.failure(let error):
+                print(error)
+            }
+        }
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.myTable.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func popUpAlert(_ title:String, _ message:String, _ buttonTitle:String,_ action:@escaping (UIAlertAction)->Void){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title:buttonTitle , style: .default, handler: action)
+        alert.addAction(alertAction)
+        present(alert, animated: true)
     }
     
     @objc func didTapButton(){
         localManager.startUpdatingLocation()
         DispatchQueue.main.asyncAfter(deadline: .now()+1){
             self.cityData = []
+            self.searchCity = ""
+            self.SearchACity.text = "Search A City"
+            self.myTable.reloadData()
             self.viewDidLoad()
         }
     }
@@ -105,4 +163,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.localManager.stopUpdatingLocation()
     }
 }
+
 

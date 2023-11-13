@@ -160,6 +160,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="93q-Mi-W48"/>
                     <connections>
+                        <outlet property="SearchACity" destination="0Rn-o3-ykx" id="89i-Br-YeH"/>
                         <outlet property="locationButton" destination="5e5-g7-h7j" id="Q1D-0u-n78"/>
                         <outlet property="myTable" destination="abM-tc-OOo" id="4l4-Dd-yYI"/>
                     </connections>

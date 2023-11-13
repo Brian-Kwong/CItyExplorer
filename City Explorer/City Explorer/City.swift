@@ -70,6 +70,20 @@ struct metaData:Codable{
     let totalCount:Int
 }
 
+struct cityPredictionResponse:Codable{
+    let predictions:[cityPrediction]
+    let status:String
+}
+
+struct cityPrediction:Codable{
+    let structuredFormatting:structuredCityFormat
+}
+
+struct structuredCityFormat:Codable{
+    let mainText:String
+}
+
+
 enum CodingKeys: String, CodingKey{
     case data
     case links
@@ -81,6 +95,10 @@ enum CodingKeys: String, CodingKey{
     case height
     case width
     case photoReference = "photo_reference"
+    case predictions
+    case status
+    case structuredFormatting = "structured_formatting"
+    case mainText = "main_text"
 }
 
 
