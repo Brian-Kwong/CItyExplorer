@@ -2,7 +2,7 @@ Original App Design Project - README Template
 ===
 
 # City Explorer
-- <img src="CityExplorer/images/icon.png" width=400>
+- <img src="images/icon.PNG" width=400>
 
 ## 🎬🎬:VIDEO PREVIEW:🎬🎬
 - https://youtu.be/b_TU2BDxsms
@@ -97,22 +97,22 @@ User clicks settings -> User clicks reset settings -> Local storage and user inf
    - <img src="CityExplorer/images/welcome.png" width=1290>
 2) Stream
    - Home screen, recently viewed screen and saved cities screen
-   - <img src="CityExplorer/images/homeDef.png" width=1290>
-   - <img src="CityExplorer/images/search.png" width=1290>
-   - <img src="CityExplorer/images/currentLocation.png" width=1290>
-   - <img src="CityExplorer/images/saved.png" width=1290>
-   - <img src="CityExplorer/images/recents.png" width=1290>
+   - <img src="images/homeDef.PNG" height=2796 width=1290>
+   - <img src="images/search.PNG" height=2796 width=1290>
+   - <img src="images/currentLocation.PNG" height=2796 width=1290>
+   - <img src="images/saved.PNG" height=2796 width=1290>
+   - <img src="images/recents.PNG" height=2796 width=1290>
 3) Detailed
    - City/location information is displayed in detailed.  links to references for more information User can bookmark this lcoation using the star icon
-   - <img src="CityExplorer/images/sloInfo.jpeg" width=1290>
-   - <img src="CityExplorer/images/slo.png" width=1290>
+   - <img src="images/sloInfo.jpeg" height=2796 width=1290>
+   - <img src="images/slo.PNG" height=2796 width=1290>
 4) User Profile
    - User can see there name and hometown.  They can also access cities they bookmarked and viewed recently
-   - <img src="CityExplorer/images/user.png" width=1290>
+   - <img src="images/user.PNG" height=2796 width=1290>
 5) Settings
    - User can edit there name and location, reset all information and data within the app
-   - <img src="CityExplorer/images/settings.png" width=1290>
-   - <img src="CityExplorer/images/doneReset.png" width=1290>
+   - <img src="images/settings.PNG" height=2796 width=1290>
+   - <img src="images/doneReset.PNG" height=2796 width=1290>
 
 ## Wireframes
 
