@@ -7,7 +7,8 @@
 
 import Foundation
 
-let apiKey = "&key=AIzaSyA347e3-Var0rEuVTYTNwl2v-wwOF7uB80"
+let apiKey = "&key=<insertKey>"
+let rapidApiKey = "<insertKey>"
 
 final class CityAPI{
     
@@ -20,7 +21,7 @@ final class CityAPI{
     
     func functionGetCityURLRequest(_ location:Location, completion: @escaping (Result<[City],Error>) -> Void){
         let headers = [
-            "X-RapidAPI-Key": "e83ef242camshcf5494f13f3b17cp17debejsnc310b5f6fce9",
+            "X-RapidAPI-Key": rapidApiKey,
             "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
         ]
         var baseURL = "https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=10&types=CITY&sort=-population"
@@ -67,9 +68,9 @@ final class PhotoIDAPI{
     static let shared = PhotoIDAPI()
     
     func functionGetPhotoIDURLRequest(_ location:String, completion: @escaping (Result<String,Error>) -> Void){
-        let baseURL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&key=AIzaSyA347e3-Var0rEuVTYTNwl2v-wwOF7uB80&fields=place_id&input="
-        
-        var myURL = URL(string: baseURL+location)!
+        var baseURL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&fields=place_id&input="
+        baseURL+=location
+        var myURL = URL(string:baseURL+apiKey)!
         var myRequest = URLRequest(url: myURL)
         URLSession.shared.dataTask(with: myRequest){
            data, response,error in
@@ -105,7 +106,7 @@ final class PhotoAPI{
     static let shared = PhotoAPI()
     
     func functionGetPhotoRefURLRequest(_ placeID:String, completion: @escaping (Result<[PhotoRef],Error>) -> Void){
-        let baseURL = "https://maps.googleapis.com/maps/api/place/details/json?&key=AIzaSyA347e3-Var0rEuVTYTNwl2v-wwOF7uB80&fields=photos&place_id="
+        var baseURL = "https://maps.googleapis.com/maps/api/place/details/json?fields=photos&place_id="
         
         let photoRef = PhotoRef(height: 400, width: 400, photoReference: "ATJ83zhSSAtkh5LTozXMhBghqubeOxnZWUV2m7Hv2tQaIzKQJgvZk9yCaEjBW0r0Zx1oJ9RF1G7oeM34sQQMOv8s2zA0sgGBiyBgvdyMxeVByRgHUXmv-rkJ2wyvNv17jyTSySm_-_6R2B0v4eKX257HOxvXlx_TSwp2NrICKrZM2d5d2P4q")
         let placeHolder:[ PhotoRef] = [photoRef]
@@ -113,8 +114,8 @@ final class PhotoAPI{
         if(placeID.isEmpty){
             completion(.success(placeHolder))
         }
-        
-        let myURL = URL(string: baseURL+placeID)!
+        baseURL+=placeID
+        let myURL = URL(string: baseURL+apiKey)!
         let myRequest = URLRequest(url: myURL)
         URLSession.shared.dataTask(with: myRequest){
            data, response,error in

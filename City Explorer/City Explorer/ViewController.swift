@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet var myTable: UITableView!
     
+    @IBOutlet var refreshButton: UIButton!
+    
     let localManager = CLLocationManager()
     
     var cityData:[CityDataModel] = []
@@ -194,5 +196,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.userLocation.append(locations.first!)
         self.localManager.stopUpdatingLocation()
+    }
+    
+    
+    @IBAction func refreshPage(_ sender: UIButton) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.1){
+            self.searchCity = ""
+            self.SearchACity.text = "Search A City"
+            self.viewDidLoad()
+        }
     }
 }

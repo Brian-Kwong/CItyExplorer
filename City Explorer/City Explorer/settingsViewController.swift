@@ -20,6 +20,8 @@ class settingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var resetButton: UIButton!
     
     
+    var parViewController:UserScreenViewController!
+    
     let userDef = UserDefaults.standard
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
@@ -60,6 +62,7 @@ class settingsViewController: UIViewController, UITextFieldDelegate {
         if(!nameTextBox.text!.isEmpty)
         {
             userDef.setValue(homeCityTextBox.text, forKey: "homeCity")
+            parViewController.viewDidLoad()
             self.dismiss(animated: true)
         }
     }

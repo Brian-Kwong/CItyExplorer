@@ -27,40 +27,58 @@ class UserScreenViewController: UIViewController {
         }
     }
     
-    @IBAction func pressed(_ sender: Any) {
-        print("Hello\n")
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let userDef = UserDefaults.standard
         let jsonDecoder = JSONDecoder()
         var cities:Set<City> = []
-        let userCitiesData:Data?
+        var userCitiesData:Data?
         if segue.identifier == "Settings"{
+            if let destinationController = segue.destination as? settingsViewController{
+                destinationController.parViewController = self
+            }
             return
         }
         else if segue.identifier == "Recents"{
             userCitiesData = userDef.data(forKey: "recentCities")
             if(userCitiesData == nil){
+                DispatchQueue.main.asyncAfter(deadline: .now()){ [self] in
+                    popUpAlert("No Recents", "No recents retrieved", "Ok", {_ in })
+                }
+                return
+            }
+        }
+        else if segue.identifier == "savedCities"{
+            userCitiesData = userDef.data(forKey: "savedCities")
+                if(userCitiesData == nil){
+                    DispatchQueue.main.asyncAfter(deadline: .now()){ [self] in
+                        popUpAlert("No Saved Data", "No saved cities retrieved", "Ok", {_ in })
+                    }
+                    return
+                }
+        }
+            if let citiesArraySet = try? jsonDecoder.decode(Set<City>.self, from:userCitiesData!){
+                cities = citiesArraySet
+            }
+        if(cities.isEmpty && segue.identifier == "savedCities" ){
+            DispatchQueue.main.asyncAfter(deadline: .now()){ [self] in
+                popUpAlert("No Saved Data", "No saved cities retrieved", "Ok", {_ in })
+                return
+            }
+        }
+        else if (cities.isEmpty && segue.identifier == "Recents"){
+            DispatchQueue.main.asyncAfter(deadline: .now()){ [self] in
                 popUpAlert("No Recents", "No recents retrieved", "Ok", {_ in })
                 return
             }
         }
         else{
-            userCitiesData = userDef.data(forKey: "savedCities")
-                if(userCitiesData == nil){
-                    popUpAlert("No Saved Data", "No saved cities retrieved", "Ok", {_ in })
-                    return
-                }
-        }
-        if let citiesArraySet = try? jsonDecoder.decode(Set<City>.self, from:userCitiesData!){
-            cities = citiesArraySet
-        }
-        if let destinationController = segue.destination as? recentAndSavedCitiesViewController{
+            if let destinationController = segue.destination as? recentAndSavedCitiesViewController{
                 destinationController.cities=cities
             }
             else{
                 return
             }
+        }
     }
     
     func popUpAlert(_ title:String, _ message:String, _ buttonTitle:String,_ action:@escaping (UIAlertAction)->Void){
