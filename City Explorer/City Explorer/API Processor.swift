@@ -7,8 +7,8 @@
 
 import Foundation
 
-let apiKey = "&key=AIzaSyA347e3-Var0rEuVTYTNwl2v-wwOF7uB80"
-let rapidApiKey = "e83ef242camshcf5494f13f3b17cp17debejsnc310b5f6fce9"
+let apiKey = "&key=<InsertKey>"
+let rapidApiKey = "<InsertKey>"
 
 final class CityAPI {
     private init() {
