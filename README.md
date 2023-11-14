@@ -2,6 +2,11 @@ Original App Design Project - README Template
 ===
 
 # City Explorer
+- <img src="icon.png" width=400>
+
+## 🎬🎬:VIDEO PREVIEW:🎬🎬
+- https://youtu.be/b_TU2BDxsms
+
 
 ## Table of Contents
 
@@ -89,14 +94,25 @@ User clicks settings -> User clicks reset settings -> Local storage and user inf
 ## Windows Used 
 1) Login
    - User info is first recorded and used throughout app
+   - <img src="welcome.png" width=1290>
 2) Stream
    - Home screen, recently viewed screen and saved cities screen
+   - <img src="homeDef.png" width=1290>
+   - <img src="search.png" width=1290>
+   - <img src="currentLocation.png" width=1290>
+   - <img src="saved.png" width=1290>
+   - <img src="recents.png" width=1290>
 3) Detailed
    - City/location information is displayed in detailed.  links to references for more information User can bookmark this lcoation using the star icon
+   - <img src="sloInfo.jpeg" width=1290>
+   - <img src="slo.png" width=1290>
 4) User Profile
    - User can see there name and hometown.  They can also access cities they bookmarked and viewed recently
+   - <img src="user.png" width=1290>
 5) Settings
    - User can edit there name and location, reset all information and data within the app
+   - <img src="settings.png" width=1290>
+   - <img src="doneReset.png" width=1290>
 
 ## Wireframes
 
