@@ -2,7 +2,7 @@ Original App Design Project - README Template
 ===
 
 # City Explorer
-- <img src="images/icon.png" width=400>
+- <img src="CityExplorer/images/icon.png" width=400>
 
 ## 🎬🎬:VIDEO PREVIEW:🎬🎬
 - https://youtu.be/b_TU2BDxsms
@@ -94,25 +94,25 @@ User clicks settings -> User clicks reset settings -> Local storage and user inf
 ## Windows Used 
 1) Login
    - User info is first recorded and used throughout app
-   - <img src="images/welcome.png" width=1290>
+   - <img src="CityExplorer/images/welcome.png" width=1290>
 2) Stream
    - Home screen, recently viewed screen and saved cities screen
-   - <img src="images/homeDef.png" width=1290>
-   - <img src="images/search.png" width=1290>
-   - <img src="images/currentLocation.png" width=1290>
-   - <img src="images/saved.png" width=1290>
-   - <img src="images/recents.png" width=1290>
+   - <img src="CityExplorer/images/homeDef.png" width=1290>
+   - <img src="CityExplorer/images/search.png" width=1290>
+   - <img src="CityExplorer/images/currentLocation.png" width=1290>
+   - <img src="CityExplorer/images/saved.png" width=1290>
+   - <img src="CityExplorer/images/recents.png" width=1290>
 3) Detailed
    - City/location information is displayed in detailed.  links to references for more information User can bookmark this lcoation using the star icon
-   - <img src="images/sloInfo.jpeg" width=1290>
-   - <img src="images/slo.png" width=1290>
+   - <img src="CityExplorer/images/sloInfo.jpeg" width=1290>
+   - <img src="CityExplorer/images/slo.png" width=1290>
 4) User Profile
    - User can see there name and hometown.  They can also access cities they bookmarked and viewed recently
-   - <img src="images/user.png" width=1290>
+   - <img src="CityExplorer/images/user.png" width=1290>
 5) Settings
    - User can edit there name and location, reset all information and data within the app
-   - <img src="images/settings.png" width=1290>
-   - <img src="images/doneReset.png" width=1290>
+   - <img src="CityExplorer/images/settings.png" width=1290>
+   - <img src="CityExplorer/images/doneReset.png" width=1290>
 
 ## Wireframes
 
