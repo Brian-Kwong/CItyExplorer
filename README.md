@@ -120,7 +120,22 @@ User clicks settings -> User clicks reset settings -> Local storage and user inf
 
 ### Models
 
-[Add table of models]
+	Cities DataModel : {
+		- id: Int
+   		- wikiDataId: String
+    		- type: String
+    		- city: String
+		- name: String
+		- country: String
+		- countryCode: String
+		- region: String
+		- regionCode: String
+		- regionWdId: String
+		- latitude: Double
+		- longitude: Double
+		- population: Int
+ 	}
+ 		
 
 ### Networking
 
