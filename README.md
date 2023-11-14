@@ -130,5 +130,5 @@ APIS in use
    - Google Places Details
    - Google Places Autocomplete
 
-     # FOR SECURITY API KEYS ARE NOT PROVIDED (Sign up for them yourselves )
+<footer> FOR SECURITY API KEYS ARE NOT PROVIDED (Sign up for them yourselves ) </footer> 
      	- 
