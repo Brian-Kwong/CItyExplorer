@@ -2,6 +2,11 @@ Original App Design Project - README Template
 ===
 
 # City Explorer
+- <img src="images/icon.PNG" width=100>
+
+## 🎬🎬:VIDEO PREVIEW:🎬🎬
+- https://youtu.be/b_TU2BDxsms
+
 
 ## Table of Contents
 
@@ -89,14 +94,25 @@ User clicks settings -> User clicks reset settings -> Local storage and user inf
 ## Windows Used 
 1) Login
    - User info is first recorded and used throughout app
+   - <img src="CityExplorer/images/welcome.png" height=279 width=129>
 2) Stream
    - Home screen, recently viewed screen and saved cities screen
+   - <img src="images/homeDef.PNG" height=279 width=129>
+   - <img src="images/search.PNG" height=279 width=129>
+   - <img src="images/currentLocation.PNG" height=279 width=129>
+   - <img src="images/saved.PNG" height=279 width=129>
+   - <img src="images/recents.PNG" height=279 width=129>
 3) Detailed
    - City/location information is displayed in detailed.  links to references for more information User can bookmark this lcoation using the star icon
+   - <img src="images/sloInfo.jpeg" height=279 width=129>
+   - <img src="images/slo.PNG" height=279 width=129>
 4) User Profile
    - User can see there name and hometown.  They can also access cities they bookmarked and viewed recently
+   - <img src="images/user.PNG" height=279 width=129>
 5) Settings
    - User can edit there name and location, reset all information and data within the app
+   - <img src="images/settings.PNG" height=279 width=129>
+   - <img src="images/doneReset.PNG" height=279 width=129>
 
 ## Wireframes
 
@@ -104,7 +120,22 @@ User clicks settings -> User clicks reset settings -> Local storage and user inf
 
 ### Models
 
-[Add table of models]
+	Cities DataModel : {
+		- id: Int
+   		- wikiDataId: String
+    		- type: String
+    		- city: String
+		- name: String
+		- country: String
+		- countryCode: String
+		- region: String
+		- regionCode: String
+		- regionWdId: String
+		- latitude: Double
+		- longitude: Double
+		- population: Int
+ 	}
+ 		
 
 ### Networking
 
@@ -114,5 +145,5 @@ APIS in use
    - Google Places Details
    - Google Places Autocomplete
 
-     # FOR SECURITY API KEYS ARE NOT PROVIDED (Sign up for them yourselves )
+<footer> FOR SECURITY API KEYS ARE NOT PROVIDED (Sign up for them yourselves ) </footer> 
      	- 
