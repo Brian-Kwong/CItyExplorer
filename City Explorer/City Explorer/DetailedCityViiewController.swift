@@ -5,60 +5,45 @@
 //  Created by brian on 11/11/23.
 //
 
-import UIKit
 import Nuke
 import SafariServices
+import UIKit
 
 class DetailedCityViiewController: UIViewController, SFSafariViewControllerDelegate {
-
-    
     let userDef = UserDefaults.standard
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
- 
-    @IBOutlet var DetailedImageView: UIImageView!
-    
-    
- 
-    @IBOutlet var CityName: UILabel!
-    
-    
- 
-    @IBOutlet var CountryName: UILabel!
-    
-    
 
-   
+    @IBOutlet var DetailedImageView: UIImageView!
+
+    @IBOutlet var CityName: UILabel!
+
+    @IBOutlet var CountryName: UILabel!
+
     @IBOutlet var PopulationName: UILabel!
-    
-   
-    
+
     @IBOutlet var RegionName: UILabel!
-    
- 
+
     @IBOutlet var LongInfo: UILabel!
-    
-    
+
     @IBOutlet var LatInfo: UILabel!
-    
-    
+
     @IBOutlet var wikiButton: UIButton!
-    
+
     @IBOutlet var savedButton: UIButton!
-    
-    
-    var city:CityDataModel!
-    
-    var savedCities:Set<City> = []
-    
-    var saved:Bool = false
-    
-    var fromHome:Bool = true
-    
+
+    var city: CityDataModel!
+
+    var savedCities: Set<City> = []
+
+    var saved: Bool = false
+
+    var fromHome: Bool = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         saved = inSave()
-        if(saved){
+        if saved {
             savedButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         }
         addToRecents()
@@ -69,65 +54,59 @@ class DetailedCityViiewController: UIViewController, SFSafariViewControllerDeleg
         LongInfo.text = String(city.cityInfo.longitude)
         LatInfo.text = String(city.cityInfo.latitude)
         wikiButton.setTitle(city.cityInfo.wikiDataId, for: .normal)
-        if let photo = city.cityImages.first{
+        if let photo = city.cityImages.first {
             let urlString = PhotoAPI.buildImageURL(photo)
             let image = URL(string: urlString)!
             Nuke.loadImage(with: image, into: DetailedImageView)
         }
     }
-    
 
-    @IBAction func goToWiki(_ sender: Any) {
+    @IBAction func goToWiki(_: Any) {
         let baseURL = "https://www.wikidata.org/wiki/"
-        let safariWindow = SFSafariViewController(url:URL(string: baseURL+city.cityInfo.wikiDataId)!)
+        let safariWindow = SFSafariViewController(url: URL(string: baseURL + city.cityInfo.wikiDataId)!)
         safariWindow.delegate = self
-        self.present(safariWindow, animated: true)
+        present(safariWindow, animated: true)
     }
-    
-    
+
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true)
     }
-    
-    
+
     @IBAction func saveThisCity(_ sender: UIButton) {
-        let buttonImage:UIImage?
+        let buttonImage: UIImage?
         saved = !saved
-        if(saved){
+        if saved {
             buttonImage = UIImage(systemName: "star.fill")
             savedCities.insert(city.cityInfo)
-        }
-        else{
+        } else {
             buttonImage = UIImage(systemName: "star")
             savedCities.remove(city.cityInfo)
         }
         sender.setImage(buttonImage, for: .normal)
-        if let userSavedtCityData = try? jsonEncoder.encode(savedCities){
+        if let userSavedtCityData = try? jsonEncoder.encode(savedCities) {
             userDef.setValue(userSavedtCityData, forKey: "savedCities")
         }
     }
-    
-    func inSave()->Bool{
-        if let userSavedCitiesData = userDef.data(forKey: "savedCities"){
-            if let savedCitiesSet = try? jsonDecoder.decode(Set<City>.self, from:userSavedCitiesData){
-                self.savedCities = savedCitiesSet
+
+    func inSave() -> Bool {
+        if let userSavedCitiesData = userDef.data(forKey: "savedCities") {
+            if let savedCitiesSet = try? jsonDecoder.decode(Set<City>.self, from: userSavedCitiesData) {
+                savedCities = savedCitiesSet
             }
         }
         return savedCities.contains(city.cityInfo)
     }
-    
-    
-    func addToRecents()->Void{
-        var recentCities:Set<City> = []
-        if let userRecentCity = userDef.data(forKey: "recentCities"){
-            if let recentCitiesSet = try? jsonDecoder.decode(Set<City>.self, from:userRecentCity){
+
+    func addToRecents() {
+        var recentCities: Set<City> = []
+        if let userRecentCity = userDef.data(forKey: "recentCities") {
+            if let recentCitiesSet = try? jsonDecoder.decode(Set<City>.self, from: userRecentCity) {
                 recentCities = recentCitiesSet
             }
         }
         recentCities.insert(city.cityInfo)
-        if let userRecentCityData = try? jsonEncoder.encode(recentCities){
+        if let userRecentCityData = try? jsonEncoder.encode(recentCities) {
             userDef.setValue(userRecentCityData, forKey: "recentCities")
         }
     }
-
 }

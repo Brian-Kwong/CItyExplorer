@@ -7,84 +7,83 @@
 
 import Foundation
 
-struct Location:Codable{
-    let lat:Double
-    let long:Double
-    let name:String
+struct Location: Codable {
+    let lat: Double
+    let long: Double
+    let name: String
 }
 
-struct GPlacesResponse:Codable{
-    let candidates:[Place]
+struct GPlacesResponse: Codable {
+    let candidates: [Place]
 }
 
-struct Place:Codable{
-    let placeId :String
+struct Place: Codable {
+    let placeId: String
 }
 
-struct PlaceDeta:Codable{
-    let result:Results
+struct PlaceDeta: Codable {
+    let result: Results
 }
 
-struct Results:Codable{
-    let photos:[PhotoRef]
+struct Results: Codable {
+    let photos: [PhotoRef]
 }
 
-struct PhotoRef:Codable{
-    let height:Int
-    let width:Int
-    let photoReference:String
+struct PhotoRef: Codable {
+    let height: Int
+    let width: Int
+    let photoReference: String
 }
 
-struct Response: Codable{
-    let data:[City]
+struct Response: Codable {
+    let data: [City]
 }
 
-struct Errors:Codable{
-    let code:String
-    let message:String
+struct Errors: Codable {
+    let code: String
+    let message: String
 }
 
-struct City: Codable, Hashable{
-    let id:Int
-    let wikiDataId:String
-    let type:String
-    let city:String
-    let name:String
-    let country:String
-    let countryCode:String
+struct City: Codable, Hashable {
+    let id: Int
+    let wikiDataId: String
+    let type: String
+    let city: String
+    let name: String
+    let country: String
+    let countryCode: String
     let region: String
-    let regionCode:String
-    let regionWdId:String
-    let latitude:Double
-    let longitude:Double
-    let population:Int
+    let regionCode: String
+    let regionWdId: String
+    let latitude: Double
+    let longitude: Double
+    let population: Int
 }
 
-struct Link:Codable{
-    let href:String
-    let rel:String
+struct Link: Codable {
+    let href: String
+    let rel: String
 }
 
-struct metaData:Codable{
-    let currentOffset:Int
-    let totalCount:Int
+struct metaData: Codable {
+    let currentOffset: Int
+    let totalCount: Int
 }
 
-struct cityPredictionResponse:Codable{
-    let predictions:[cityPrediction]
-    let status:String
+struct cityPredictionResponse: Codable {
+    let predictions: [cityPrediction]
+    let status: String
 }
 
-struct cityPrediction:Codable{
-    let structuredFormatting:structuredCityFormat
+struct cityPrediction: Codable {
+    let structuredFormatting: structuredCityFormat
 }
 
-struct structuredCityFormat:Codable{
-    let mainText:String
+struct structuredCityFormat: Codable {
+    let mainText: String
 }
 
-
-enum CodingKeys: String, CodingKey{
+enum CodingKeys: String, CodingKey {
     case data
     case links
     case metadata
@@ -101,16 +100,14 @@ enum CodingKeys: String, CodingKey{
     case mainText = "main_text"
 }
 
-
-struct CityDataModel:Codable{
-    let cityInfo:City
-    let cityImages:[PhotoRef]
+struct CityDataModel: Codable {
+    let cityInfo: City
+    let cityImages: [PhotoRef]
 }
 
-struct User:Codable{
-    var name:String = ""
-    var homeCity:String = ""
-    var savedCities:[City] = []
-    var recentCities:[City] = []
-
+struct User: Codable {
+    var name: String = ""
+    var homeCity: String = ""
+    var savedCities: [City] = []
+    var recentCities: [City] = []
 }

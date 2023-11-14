@@ -256,7 +256,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
             endingLineNumber = "121"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -272,7 +272,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkName = "textFieldDidBeginEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -288,7 +288,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
             endingLineNumber = "125"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkName = "textFieldDidBeginEditing(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -462,7 +462,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
             endingLineNumber = "75"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "saveThisCity(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -510,8 +510,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "185"
             endingLineNumber = "185"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -526,7 +526,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "176"
             endingLineNumber = "176"
-            landmarkName = "didTapButton()"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -542,7 +542,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
             endingLineNumber = "197"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkName = "refreshPage(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -878,7 +878,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
             endingLineNumber = "75"
-            landmarkName = "prepare(for:sender:)"
+            landmarkName = "popUpAlert(_:_:_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -942,7 +942,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
             endingLineNumber = "94"
-            landmarkName = "saveThisCity(_:)"
+            landmarkName = "inSave()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1182,8 +1182,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
             endingLineNumber = "50"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
+            landmarkName = "recentAndSavedCitiesViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "A287DEE4-1AB9-42E5-9D09-B47BAE4F52AE - f1f2fdc587afd88a"
@@ -1389,9 +1389,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "welcomeViewController"
-            landmarkType = "3">
+            endingLineNumber = "60">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1405,9 +1403,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "saveSettings(_:)"
-            landmarkType = "7">
+            endingLineNumber = "56">
             <Locations>
                <Location
                   uuid = "037ACD93-A755-4A5C-87FD-DA71C7D1879D - 1a1fbda1bb26bfa7"
@@ -1454,8 +1450,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "saveSettings(_:)"
-            landmarkType = "7">
+            landmarkName = "welcomeViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "25511BBB-8A9E-4DFA-AE4A-FCDCE7DD2F62 - 1a1fbda1bb26bf84"
@@ -1566,8 +1562,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
             endingLineNumber = "29"
-            landmarkName = "ViewController"
-            landmarkType = "3">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1622,7 +1618,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B52156C5-E253-43AF-8E6C-4914611422DB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "City Explorer/ViewController.swift"
@@ -1630,7 +1626,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
             endingLineNumber = "97"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "printNetworkError(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1692,6 +1688,51 @@
                   startingLineNumber = "97"
                   endingLineNumber = "97"
                   offsetFromSymbolStart = "2096">
+               </Location>
+               <Location
+                  uuid = "B52156C5-E253-43AF-8E6C-4914611422DB - eed177e54a618fce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;City_Explorer.City&gt;, Swift.Error&gt;) -&gt; () in City_Explorer.ViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "City Explorer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brian/Documents/CItyExplorer/City%20Explorer/City%20Explorer/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "2930">
+               </Location>
+               <Location
+                  uuid = "B52156C5-E253-43AF-8E6C-4914611422DB - e338bb795c3c45be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "City_Explorer.ViewController.printNetworkError(Swift.String) -&gt; ()"
+                  moduleName = "City Explorer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brian/Documents/CItyExplorer/City%20Explorer/City%20Explorer/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "384">
+               </Location>
+               <Location
+                  uuid = "B52156C5-E253-43AF-8E6C-4914611422DB - e8758e355c4ebf8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in City_Explorer.ViewController.printNetworkError(Swift.String) -&gt; ()"
+                  moduleName = "City Explorer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brian/Documents/CItyExplorer/City%20Explorer/City%20Explorer/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "80">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1852,7 +1893,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "saveThisCity(_:)"
+            landmarkName = "inSave()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1868,8 +1909,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "DetailedCityViiewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "5B42DD2A-45A8-4AF4-BB16-D940C54306B5 - 265f10698f7185fb"
@@ -1916,7 +1957,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
             endingLineNumber = "89"
-            landmarkName = "safariViewControllerDidFinish(_:)"
+            landmarkName = "saveThisCity(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1964,7 +2005,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "goToWiki(_:)"
+            landmarkName = "saveThisCity(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -2059,9 +2100,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "popUpAlert(_:_:_:_:)"
-            landmarkType = "7">
+            endingLineNumber = "87">
             <Locations>
                <Location
                   uuid = "89F88E02-6ED5-40C7-B7C8-5851FF7A6459 - 1e80926e1fbe4e6a"
