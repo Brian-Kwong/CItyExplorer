@@ -94,7 +94,7 @@ User clicks settings -> User clicks reset settings -> Local storage and user inf
 ## Windows Used 
 1) Login
    - User info is first recorded and used throughout app
-   - <img src="CityExplorer/images/welcome.png" height=279 width=129>
+   - <img src="images/welcome.PNG" height=279 width=129>
 2) Stream
    - Home screen, recently viewed screen and saved cities screen
    - <img src="images/homeDef.PNG" height=279 width=129>
